@@ -18,13 +18,13 @@ public class CSControllerAdvice {
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<CSModel.Response> handleMissingParam(MethodArgumentTypeMismatchException ex) {
+    public ResponseEntity<CSModel.Response> handleMissmathParam(MethodArgumentTypeMismatchException ex) {
         String errorMessage = AdviceError.PARAM_INCORRECT.getMessage(ex.getParameter().getParameterName());
         return new ResponseEntity<>(new CSModel.Response(errorMessage), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(IllegalStateException.class)
-    public ResponseEntity<CSModel.Response> handleMissingParam(IllegalStateException ex) {
+    public ResponseEntity<CSModel.Response> handleIllegalState(IllegalStateException ex) {
         return new ResponseEntity<>(new CSModel.Response(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
